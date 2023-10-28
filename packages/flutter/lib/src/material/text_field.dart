@@ -284,6 +284,7 @@ class TextField extends StatefulWidget {
     this.inputFormatters,
     this.enabled,
     this.cursorWidth = 2.0,
+    this.cursorOffset,
     this.cursorHeight,
     this.cursorRadius,
     this.cursorOpacityAnimates,
@@ -574,6 +575,9 @@ class TextField extends StatefulWidget {
 
   /// {@macro flutter.widgets.editableText.cursorWidth}
   final double cursorWidth;
+
+  /// {@macro flutter.widgets.editableText.cursorOffset}
+  final Offset? cursorOffset;
 
   /// {@macro flutter.widgets.editableText.cursorHeight}
   final double? cursorHeight;
@@ -1427,7 +1431,7 @@ class _TextFieldState extends State<TextField> with RestorationMixin implements 
           selectionHeightStyle: widget.selectionHeightStyle,
           selectionWidthStyle: widget.selectionWidthStyle,
           cursorOpacityAnimates: cursorOpacityAnimates,
-          cursorOffset: cursorOffset,
+          cursorOffset: widget.cursorOffset ?? cursorOffset,
           paintCursorAboveText: paintCursorAboveText,
           backgroundCursorColor: CupertinoColors.inactiveGray,
           scrollPadding: widget.scrollPadding,
